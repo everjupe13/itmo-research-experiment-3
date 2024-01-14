@@ -1,0 +1,23 @@
+{
+  "name": "crawler-analyzer",
+  "version": "1.0.0",
+  "description": "a suppport program for taking measurement",
+  "type": "module",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "Ilya Bakirov",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unicorn": "^50.0.1",
+    "prettier": "^3.2.1"
+  }
+}
