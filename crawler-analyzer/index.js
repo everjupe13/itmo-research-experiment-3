@@ -1,5 +1,9 @@
 import { api } from './api.js'
-import { EXPERIMENTS, REQUEST_COUNTS_PER_STEP } from './constants.js'
+import {
+  EXPERIMENTS,
+  PER_REQ_DELAY,
+  REQUEST_COUNTS_PER_STEP
+} from './constants.js'
 import { sleep } from './utils/index.js'
 import { LoggerService } from './utils/logger.service.js'
 import { terminal } from './utils/terminal.js'
@@ -31,7 +35,7 @@ const bootstrap = async () => {
         time
       })
 
-      await sleep(60_000)
+      await sleep(PER_REQ_DELAY)
     }
   }
 

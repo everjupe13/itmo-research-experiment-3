@@ -1,4 +1,4 @@
-export const PER_REQ_DELAY = 4 * 60 * 1000 // 4 min in ms
+export const PER_REQ_DELAY = 1 * 60 * 1000
 export const CLIENT_URLS = {
   NUXT2: 'http://89.223.65.6:3002',
   NUXT3: 'http://89.223.65.6:3003'
