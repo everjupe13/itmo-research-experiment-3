@@ -1,0 +1,57 @@
+<script setup lang="ts">
+import { PropType } from 'vue'
+
+defineProps({
+  variant: {
+    type: String as PropType<'primary' | 'secondary'>,
+    default: 'primary'
+  },
+  loading: { type: Boolean, default: false }
+})
+</script>
+
+<template>
+  <button :class="['app-button', variant, loading && 'loading']">
+    <slot />
+  </button>
+</template>
+
+<style scoped>
+.app-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 14px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  background-color: transparent; /* #f9f9f9 */
+
+  color: var(--primary-text-color);
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: 0.3s;
+  outline: 0;
+  outline: none;
+}
+
+.app-button:disabled,
+.app-button.loading {
+  opacity: 0.7;
+}
+
+.app-button.primary {
+  background-color: #2e4aeb;
+  color: #fff;
+  border-color: #2e4aeb;
+}
+
+.app-button:focus.primary {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.app-button:active.primary {
+  background-color: #3452f9;
+}
+</style>
