@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  server:
+    build: 
+      context: ./node-server
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3008:8080"
+    volumes:
+      - ./node-server:/app
+    environment:
+      - NODE_ENV=development
+
+  web:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3030"
+    environment:
+      - NODE_ENV=development
+
+  server-nuxt2:
+    build: 
+      context: ./nuxt-2
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3020:3000"
+    volumes:
+      - ./nuxt-2:/app
+
+  server-nuxt3:
+    build: 
+      context: ./nuxt-3
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3030:3000"
+    volumes:
+      - ./nuxt-3:/app
+
