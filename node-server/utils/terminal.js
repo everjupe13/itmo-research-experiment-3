@@ -5,7 +5,7 @@ const formatDateForTerminalStamp = () => {
 export const terminal = {
   startLine() {
     console.log('ITMO | Bakirov Ilya P4208 | 2024\n\n\n')
-    console.log(formatDateForTerminalStamp() + "Let's start the experiment")
+    console.log(formatDateForTerminalStamp() + 'starting...')
   },
   logLine({ name, idx, count }) {
     console.log(

@@ -1,9 +1,9 @@
-export const PER_REQ_DELAY = 1 * 60 * 1000
+export const PER_REQ_DELAY = 1 * 5 * 1000
 export const CLIENT_URLS = {
-  NUXT2: 'http://89.223.65.6:3002',
-  NUXT3: 'http://89.223.65.6:3003'
+  NUXT2: 'http://192.168.0.2:3002',
+  NUXT3: 'http://192.168.0.2:3000'
 }
-export const REQUEST_COUNTS_PER_STEP = [5, 10, 20]
+export const REQUEST_COUNTS_PER_STEP = [50, 100, 200]
 
 export const EXPERIMENTS = [
   {

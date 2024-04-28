@@ -1,15 +1,15 @@
-import { api } from './api.js'
 import {
   EXPERIMENTS,
   PER_REQ_DELAY,
   REQUEST_COUNTS_PER_STEP
-} from './constants.js'
+} from './config.js'
+import { api } from './lib/api.js'
+import { LoggerService } from './logger.service.js'
+import { TrackerService } from './tracker.service.js'
 import { sleep } from './utils/index.js'
-import { LoggerService } from './utils/logger.service.js'
 import { terminal } from './utils/terminal.js'
-import { TrackerService } from './utils/tracker.service.js'
 
-const bootstrap = async () => {
+export const bootstrap = async () => {
   terminal.startLine()
   LoggerService.start()
 
@@ -41,5 +41,3 @@ const bootstrap = async () => {
 
   terminal.endLine()
 }
-
-await bootstrap()

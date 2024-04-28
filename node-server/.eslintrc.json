@@ -19,6 +19,7 @@
     "prettier"
   ],
   "rules": {
+    "unicorn/no-array-for-each": "off",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/filename-case": "off",
     "unicorn/prefer-module": "off",
