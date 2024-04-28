@@ -8,14 +8,12 @@
       <div>Name: {{ current.name }}</div>
       <div>Email: {{ current.email }}</div>
       <div>Body: {{ current.body }}</div>
-      <div>Post: {{ current.postId }}</div>
     </li>
   </ul>
 </template>
 
 <script lang="ts">
 type DataType = {
-  postId: number
   id: number
   name: string
   email: string
@@ -27,12 +25,7 @@ export default {
     const data = await $axios.$get(`http://${req.headers.host}/api/comments/${params.count}`)
 
     return {
-      serverData: data as DataType[]
-    }
-  },
-  data() {
-    return {
-      serverData: [] as DataType[] | []
+      serverData: data.data as DataType[]
     }
   },
 }

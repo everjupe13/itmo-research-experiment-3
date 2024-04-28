@@ -1,22 +1,17 @@
-import data250 from '@/data/comments250.json'
-import data500 from '@/data/comments500.json'
-import data1000 from '@/data/comments1000.json'
+import { customAlphabet, nanoid } from 'nanoid'
+import { commentFactory } from '@/utils'
 
 export default defineEventHandler((event) => {
   const count = getRouterParam(event, 'count') || 0
+  const query  = getQuery(event)
 
-  switch (Number(count)) {
-    case 250: {
-      return data250
-    }
-    case 500: {
-      return data500
-    }
-    case 1000: {
-      return data1000
-    }
-    default: {
-      return []
-    }
-  }
+  const alhpabet = query.alhpabet as string
+  const customNanoid = alhpabet ? customAlphabet(alhpabet, 21) : nanoid
+
+  const generated = Array
+    .from({ length: Number(count) })
+    .map(() => commentFactory(customNanoid))
+  
+  setResponseStatus(event, 200)
+  return { data: generated }
 })

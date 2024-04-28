@@ -1,27 +1,21 @@
 import { Request, Response } from 'express'
-import data250 from '../data/comments250.json'
-import data500 from '../data/comments500.json'
-import data1000 from '../data/comments1000.json'
+import { customAlphabet, nanoid } from 'nanoid'
+import { commentFactory } from '../utils'
 
 const app = require('express')()
 
-app.all('/:count', (req: Request, res: Response) => {
+app.get('/:count', (req: Request, res: Response) => {
   const count = req.params.count || 0
+  const query  = req.query
 
-  switch (Number(count)) {
-    case 250: {
-      return res.status(200).json(data250)
-    }
-    case 500: {
-      return res.status(200).json(data500)
-    }
-    case 1000: {
-      return res.status(200).json(data1000)
-    }
-    default: {
-      return res.status(200).json([])
-    }
-  }
+  const alhpabet = query.alhpabet as string
+  const customNanoid = alhpabet ? customAlphabet(req.body, 21) : nanoid
+
+  const generated = Array
+    .from({ length: Number(count) })
+    .map(() => commentFactory(customNanoid))
+
+  res.status(200).json({ data: generated })
 })
 
 module.exports = app

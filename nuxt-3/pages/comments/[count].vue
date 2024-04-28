@@ -1,6 +1,5 @@
 <script setup lang="ts">
 type DataType = {
-  postId: number
   id: number
   name: string
   email: string
@@ -8,20 +7,19 @@ type DataType = {
 }
 
 const route = useRoute()
-const { data } = await useFetch<DataType[] | []>(`/api/comments/${route.params.count}`)
+const { data } = await useFetch<{ data: DataType[] | [] }>(`/api/comments/${route.params.count}`)
 </script>
 
 <template>
   <ul>
     <li
-      v-for="current in data" :key="current.id"
+      v-for="current in data?.data" :key="current.id"
       :style="{ marginBottom: '20px' }"
     >
       <p>#{{ current.id }}</p>
       <div>Name: {{ current.name }}</div>
       <div>Email: {{ current.email }}</div>
       <div>Body: {{ current.body }}</div>
-      <div>Post: {{ current.postId }}</div>
     </li>
   </ul>
 </template>
