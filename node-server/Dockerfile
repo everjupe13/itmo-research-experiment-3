@@ -5,6 +5,7 @@ COPY yarn.lock ./
 
 RUN  yarn
 COPY . .
+COPY /public .
 
 EXPOSE 8080
 
