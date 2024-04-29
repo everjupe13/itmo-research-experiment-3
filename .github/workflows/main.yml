@@ -1,0 +1,71 @@
+name: This Workflow Runs On Pushing
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  nuxts-tests:
+    name: Nuxts Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.18.0"
+
+      - name: Install JavaScript dependencies
+        run: |
+          npm install --prefix nuxt-2/
+          npm install --prefix nuxt-3/
+
+      - name: Run JavaScript Linters
+        run: |
+          cd nuxt-2
+          yarn run lint
+          cd ..
+          cd nuxt-3
+          yarn run lint
+
+  node-server-tests:
+    name: Node server TypeScript Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20.12.0"
+
+      - name: Install dependencies & Run TypeScript Linters
+        run: |
+          cd node-server
+          yarn
+          yarn run lint
+
+  frontend-tests:
+    name: Frontend TypeScript Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.19.0"
+
+      - name: Install dependencies & Run TypeScript Linters
+        run: |
+          cd frontend
+          yarn
+          yarn run lint
