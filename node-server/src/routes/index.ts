@@ -6,14 +6,18 @@ import { getFileContent, getFiles } from '@/lib/files'
 const routes = express.Router()
 
 routes.get('/api/analyzes', (req, res) => {
-  const files = getFiles('../../public/analyzes')
-  const content = files.map(
-    file =>
-      JSON.parse(getFileContent(`../../public/analyzes/${file}`) || '{}')
-        ?.data || null
-  )
+  try {
+    const files = getFiles('../../public/analyzes')
+    const content = files.map(
+      file =>
+        JSON.parse(getFileContent(`../../public/analyzes/${file}`) || '{}')
+          ?.data || null
+    )
 
-  return res.status(200).json({ data: content, error: null })
+    return res.status(200).json({ data: content, error: null })
+  } catch (error) {
+    return res.status(500).json({ data: null, error: error })
+  }
 })
 
 routes.post('/api/analyze', async (req, res) => {
