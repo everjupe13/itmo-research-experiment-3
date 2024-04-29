@@ -1,39 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+import { SingleResult } from '@/components/analyze/results'
 import { SearchBar } from '@/components/analyze/search-bar'
 import AppContainer from '@/components/shared/AppContainer.vue'
+import { useAnalyze } from '@/composables/useAnalyze'
 
-import { ResultCard } from './components/analyze/results'
-import { useAnalyze } from './composables/useAnalyze'
-
-// import HelloWorld from './components/HelloWorld.vue'
-
-const { data, loading } = useAnalyze()
-
-const cards = computed(() => {
-  const _cards = [
-    {
-      id: 0,
-      name: 'Запрос сервера 1',
-      variant: 'pending',
-      time: '00:00:00'
-    },
-    {
-      id: 1,
-      name: 'Запрос сервера 1',
-      variant: 'success',
-      time: '00:00:00'
-    },
-    {
-      id: 2,
-      name: 'Запрос сервера 1',
-      variant: 'error',
-      time: '00:00:00'
-    }
-  ]
-  return _cards
-})
+const { data: analyzes } = useAnalyze()
+const computedAnalyzes = computed(() =>
+  analyzes.value
+    .map((analyze, index) => ({ id: index + 1, items: analyze }))
+    .reverse()
+)
 </script>
 
 <template>
@@ -46,16 +24,9 @@ const cards = computed(() => {
 
   <AppContainer>
     <div class="result-wrapper">
-      <ResultCard
-        v-for="card in cards"
-        :key="card.id"
-        :variant="
-          // eslint-disable-next-line prettier/prettier
-          card.variant as 'pending' | 'success' | 'error'
-        "
-        :name="card.name"
-        :time="card.time"
-      />
+      <template v-for="analyze in computedAnalyzes" :key="analyze.id">
+        <SingleResult :id="analyze.id" :items="analyze.items || []" />
+      </template>
     </div>
   </AppContainer>
 </template>
@@ -67,7 +38,7 @@ const cards = computed(() => {
 }
 
 .result-wrapper {
-  display: flex;
+  /* display: flex; */
   flex-wrap: wrap;
   gap: 10px 15px;
 }

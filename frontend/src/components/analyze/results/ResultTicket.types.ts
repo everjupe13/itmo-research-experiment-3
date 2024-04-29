@@ -1,4 +1,4 @@
-export type ResultCardProps = {
+export type ResultTicketProps = {
   variant?: 'success' | 'pending' | 'error'
   name?: string
   time?: string

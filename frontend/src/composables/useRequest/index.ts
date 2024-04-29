@@ -7,10 +7,15 @@ import { ApiResponse, Maybe } from '../types'
 
 type UseRequestError = {
   get: Maybe<string>
+  post: Maybe<string>
 }
 
 type UseRequestConfigOptions = {
   query: { [key: string]: string }
+}
+
+type UsePostRequestConfigOptions = {
+  data: { [key: string]: string | number | boolean }
 }
 
 export interface UseRequest {
@@ -20,6 +25,10 @@ export interface UseRequest {
   get: <T>(
     url: string,
     options?: UseRequestConfigOptions
+  ) => Promise<ApiResponse<T>>
+  post: <T>(
+    url: string,
+    options?: UsePostRequestConfigOptions
   ) => Promise<ApiResponse<T>>
 }
 
@@ -42,7 +51,7 @@ const buildUrl = (url: string, query?: { [key: string]: string }) => {
 
 export function useRequest() {
   const loading = ref(false)
-  const error = ref<UseRequestError>({ get: null })
+  const error = ref<UseRequestError>({ get: null, post: null })
 
   const get = async <T>(url: string, options?: UseRequestConfigOptions) => {
     error.value.get = null
@@ -71,10 +80,41 @@ export function useRequest() {
     }
   }
 
+  const post = async <T>(
+    url: string,
+    options?: UsePostRequestConfigOptions
+  ) => {
+    error.value.post = null
+    loading.value = true
+
+    const fullUrl = buildUrl(url)
+
+    try {
+      const request = await axios.post<T>(fullUrl.toString(), options?.data)
+      loading.value = false
+
+      return {
+        data: request.data,
+        error: null
+      }
+    } catch (catchedError: unknown) {
+      const typedError = catchedError as AxiosError
+
+      loading.value = true
+      error.value.post = typedError.message
+
+      return {
+        data: null,
+        error: typedError.message
+      }
+    }
+  }
+
   return {
     error: computed(() => error.value),
     loading: computed(() => loading.value),
 
-    get
+    get,
+    post
   }
 }

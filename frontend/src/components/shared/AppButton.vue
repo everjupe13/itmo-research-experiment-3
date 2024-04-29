@@ -12,7 +12,8 @@ defineProps({
 
 <template>
   <button :class="['app-button', variant, loading && 'loading']">
-    <slot />
+    <template v-if="loading">{{ '...' }}</template>
+    <template v-else><slot /></template>
   </button>
 </template>
 
@@ -39,6 +40,7 @@ defineProps({
 .app-button:disabled,
 .app-button.loading {
   opacity: 0.7;
+  cursor: default;
 }
 
 .app-button.primary {
@@ -47,11 +49,11 @@ defineProps({
   border-color: #2e4aeb;
 }
 
-.app-button:focus.primary {
+.app-button:focus.primary:not(:disabled):not(.loading) {
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-.app-button:active.primary {
+.app-button:active.primary:not(:disabled):not(.loading) {
   background-color: #3452f9;
 }
 </style>

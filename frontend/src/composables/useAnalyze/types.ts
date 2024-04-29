@@ -1,10 +1,8 @@
 export interface AnalyzeInterface {
   id: number
-  experiment_date?: string
+  start_date: string
   name: string
-  items: {
-    id: number
-    created_at: string
-    time: string
-  }[]
+  count: number
+  requests: number
+  time: number
 }

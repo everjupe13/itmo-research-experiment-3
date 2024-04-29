@@ -99,7 +99,7 @@ a:hover {
   }
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     --primary-text-color: #242424;
     --primary-bg-color: #ffffff;
@@ -109,4 +109,4 @@ a:hover {
     --c-input-color: #242424;
     --c-input-placeholder: rgba(36, 36, 36, 0.75);
   }
-}
+} */

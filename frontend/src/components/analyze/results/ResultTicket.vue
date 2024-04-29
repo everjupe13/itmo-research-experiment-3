@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { ResultCardProps } from './ResultCard.types'
+import { ResultTicketProps } from './ResultTicket.types'
 
-const props = withDefaults(defineProps<ResultCardProps>(), {
+const props = withDefaults(defineProps<ResultTicketProps>(), {
   variant: 'pending',
   name: undefined,
   time: undefined,

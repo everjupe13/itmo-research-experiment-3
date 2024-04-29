@@ -1,2 +1,3 @@
-export type { ResultCardProps } from './ResultCard.types'
-export { default as ResultCard } from './ResultCard.vue'
+export type { ResultTicketProps } from './ResultTicket.types'
+export { default as ResultTicket } from './ResultTicket.vue'
+export { default as SingleResult } from './SingleResult.vue'

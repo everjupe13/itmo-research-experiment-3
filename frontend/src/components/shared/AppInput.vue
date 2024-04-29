@@ -56,7 +56,7 @@ const onChange = (event: Event) => {
     :type="props.type"
     :placeholder="props.placeholder"
     :value="props.modelValue"
-    :readonly="props.readonly"
+    :readonly="props.readonly || props.loading"
     :class="['app-input', { '--disabled': props.readonly || props.loading }]"
     @input="onInput"
     @change="onChange"
