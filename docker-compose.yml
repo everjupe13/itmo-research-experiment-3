@@ -2,17 +2,13 @@ version: "3"
 
 services:
   node-server:
-    build: 
-      context: ./node-server
-      dockerfile: Dockerfile
+    image: everjupe13/itmo_research_work-node_server:latest
     restart: always
     ports:
-      - "3008:8080"
+      - "8080:8080"
 
   web:
-    build: 
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: everjupe13/itmo_research_work-frontend:latest
     restart: always
     ports:
       - "3000:3060"
@@ -20,17 +16,13 @@ services:
       - NODE_ENV=development
 
   server-nuxt2:
-    build: 
-      context: ./nuxt-2
-      dockerfile: Dockerfile
+    image: everjupe13/itmo_research_work-nuxt2:latest
     restart: always
     ports:
       - "3020:3000"
 
   server-nuxt3:
-    build: 
-      context: ./nuxt-3
-      dockerfile: Dockerfile
+    image: everjupe13/itmo_research_work-nuxt3:latest
     restart: always
     ports:
       - "3030:3000"
