@@ -42,11 +42,13 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    transpile: ['axios']
+  },
 
   server: {
     host: '0.0.0.0',
-    port: 3002
+    port: 3000
   },
 
   serverMiddleware: [

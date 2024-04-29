@@ -1,7 +1,8 @@
 <template>
   <ul>
     <li
-      v-for="current in serverData" :key="current.id"
+      v-for="current in serverData"
+      :key="current.id"
       :style="{ marginBottom: '20px' }"
     >
       <p>#{{ current.id }}</p>
@@ -21,12 +22,22 @@ type DataType = {
 }
 
 export default {
-  async asyncData({ params, $axios, req }: { params: any, $axios: any, req: any }) {
-    const data = await $axios.$get(`http://${req.headers.host}/api/comments/${params.count}`)
+  async asyncData({
+    params,
+    $axios,
+    req: _req
+  }: {
+    params: any
+    $axios: any
+    req: any
+  }) {
+    const data = await $axios.$get(
+      `http://localhost:3000/api/comments/${params.count}`
+    )
 
     return {
       serverData: data.data as DataType[]
     }
-  },
+  }
 }
 </script>

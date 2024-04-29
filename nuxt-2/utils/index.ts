@@ -1,5 +1,5 @@
 function getRandomNumber(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 const getName = (generator: () => string) => {
@@ -17,11 +17,7 @@ const getName = (generator: () => string) => {
   ]
 
   const mutated = [...dict]
-  mutated.splice(
-    getRandomNumber(0, dict.length - 1),
-    0,
-    word
-  )
+  mutated.splice(getRandomNumber(0, dict.length - 1), 0, word)
 
   return mutated.join(' ')
 }
@@ -37,10 +33,12 @@ const getEmail = (generator: () => string) => {
     'veronica.us',
     'antoinette.ca',
     'crystel.ca',
-    'letitia.biz',
+    'letitia.biz'
   ]
 
-  return [word, dict[getRandomNumber(0, dict.length - 1)]].filter(Boolean).join('@')
+  return [word, dict[getRandomNumber(0, dict.length - 1)]]
+    .filter(Boolean)
+    .join('@')
 }
 
 const getBody = (generator: () => string) => {
@@ -63,11 +61,7 @@ const getBody = (generator: () => string) => {
   ]
 
   const mutated = [...dict]
-  mutated.splice(
-    getRandomNumber(0, dict.length - 1),
-    0,
-    word
-  )
+  mutated.splice(getRandomNumber(0, dict.length - 1), 0, word)
 
   return mutated.join(' ')
 }
