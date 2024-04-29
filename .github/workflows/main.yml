@@ -19,11 +19,7 @@ jobs:
         with:
           node-version: "18.18.0"
 
-      - name: Install JavaScript dependencies
-        with:
-          node-version: "18.18.0"
-
-      - name: Run JavaScript Linters
+      - name: Install Nuxt 3 dependencies & Run Linters
         run: |
           cd nuxt-3
           yarn
@@ -42,11 +38,7 @@ jobs:
         with:
           node-version: "18.18.0"
 
-      - name: Install JavaScript dependencies
-        with:
-          node-version: "18.18.0"
-
-      - name: Run JavaScript Linters
+      - name: Install Nuxt 2 dependencies & Run Linters
         run: |
           cd nuxt-2
           yarn
