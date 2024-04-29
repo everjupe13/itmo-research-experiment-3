@@ -1,0 +1,52 @@
+{
+  "data": [
+    {
+      "id": "mwcXOvr8KlcWXqzgwY81z",
+      "start_date": 1714409935886,
+      "requests": 50,
+      "count": 100,
+      "name": "Nuxt2",
+      "time": "98.000ms"
+    },
+    {
+      "id": "yp7yPppe3QlO22FnzTvYE",
+      "start_date": 1714409936129,
+      "requests": 100,
+      "count": 100,
+      "name": "Nuxt2",
+      "time": "42.000ms"
+    },
+    {
+      "id": "QDZ8d_lmPaNmwjFfH3w5S",
+      "start_date": 1714409936461,
+      "requests": 200,
+      "count": 100,
+      "name": "Nuxt2",
+      "time": "131.000ms"
+    },
+    {
+      "id": "hfI_Ns9Sc1kI6SgbhG2sx",
+      "start_date": 1714409936705,
+      "requests": 50,
+      "count": 100,
+      "name": "Nuxt3",
+      "time": "41.000ms"
+    },
+    {
+      "id": "aphq6i91dHmNKf8RZ5r-0",
+      "start_date": 1714409936974,
+      "requests": 100,
+      "count": 100,
+      "name": "Nuxt3",
+      "time": "67.000ms"
+    },
+    {
+      "id": "i2R3qKAR-QqscAsNvPDuV",
+      "start_date": 1714409937289,
+      "requests": 200,
+      "count": 100,
+      "name": "Nuxt3",
+      "time": "114.000ms"
+    }
+  ]
+}
