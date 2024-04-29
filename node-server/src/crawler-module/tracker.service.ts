@@ -1,4 +1,7 @@
 class TrackerServiceSingleton {
+  startTime: number | null
+  endTime: number | null
+
   constructor() {
     this.reset()
   }

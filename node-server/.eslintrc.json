@@ -8,6 +8,7 @@
     "sourceType": "module"
   },
   "extends": [
+    "plugin:@typescript-eslint/recommended",
     "eslint:recommended",
     "plugin:unicorn/recommended",
     "plugin:prettier/recommended",
@@ -30,6 +31,38 @@
     "simple-import-sort/imports": "error",
     "import/newline-after-import": "error",
     "simple-import-sort/exports": "error",
-    "import/first": "error"
+    "import/first": "error",
+
+    "no-console": "warn",
+    "no-undef": "error",
+    "no-underscore-dangle": "off",
+    "no-useless-constructor": "off",
+    "no-empty-function": "off",
+
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src",
+          "test"
+        ],
+        "extensions": [
+          ".ts"
+        ]
+      }
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts"
+      ]
+    }
   }
 }

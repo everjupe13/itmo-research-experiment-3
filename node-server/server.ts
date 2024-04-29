@@ -1,10 +1,13 @@
 import cors from 'cors'
 import express from 'express'
 
-import { routes } from './routes/index.js'
+import { routes } from './src/routes'
+
+const config = [cors(), express.json(), express.urlencoded({ extended: true })]
 
 const app = express()
-app.use(cors())
+
+app.use(config)
 app.use(routes)
 
 app.listen(8080, () => {

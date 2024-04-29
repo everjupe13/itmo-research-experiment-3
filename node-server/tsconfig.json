@@ -1,0 +1,37 @@
+{
+  "ts-node": {
+    "require": ["tsconfig-paths/register"],
+    "esm": true
+  },
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "ES6",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+
+    "sourceMap": true,
+    "outDir": "dist",
+    "allowJs": true,
+    "lib": [
+      "es5",
+      "es6",
+      "ESNext",
+      "dom"
+    ],
+    "typeRoots": [
+      "./types/*.d.ts"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+    },
+  },
+  "exclude": [
+    "node_modules",
+    "./dist/**/*"
+  ],
+  "include": [
+    "./src",
+    "./"
+  ]
+}

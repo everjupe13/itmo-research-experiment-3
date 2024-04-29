@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-export const api = async url => {
+export const api = async <T>(url: string) => {
   try {
-    const { data } = await axios.get(`${url}`)
+    const { data } = await axios.get<T>(`${url}`)
     if (data) {
       return data
     }
