@@ -7,6 +7,10 @@ export default defineNuxtConfig({
     }
   },
 
+  modules: [
+    '@nuxtjs/eslint-module',
+  ],
+
   devServer: {
     port: 3003
   }
