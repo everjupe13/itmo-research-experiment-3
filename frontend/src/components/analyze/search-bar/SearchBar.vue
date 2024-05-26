@@ -23,13 +23,13 @@ defineProps({
 })
 
 const data = ref({
-  search: '',
+  alphabet: '',
   count: '',
   requests: ''
 })
 const handleInputChange = (
   value: string,
-  type: 'search' | 'count' | 'requests'
+  type: 'alphabet' | 'count' | 'requests'
 ) => {
   data.value[type] = value
 }
@@ -39,7 +39,7 @@ const handleSubmit = async () => {
   const handledRequests = Number.parseInt(data.value.requests, 10)
 
   data.value = {
-    search: '',
+    alphabet: '',
     count: '',
     requests: ''
   }
@@ -60,11 +60,9 @@ const loading = computed(() => {
     <div class="search-group">
       <AppInput
         :placeholder="placeholder"
-        :model-value="data.search"
-        readonly
-        :style="{ opacity: '0.4' }"
+        :model-value="data.alphabet"
         class="input"
-        @update:model-value="handleInputChange($event, 'search')"
+        @update:model-value="handleInputChange($event, 'alphabet')"
       />
       <AppInput
         :placeholder="countPlaceholder"

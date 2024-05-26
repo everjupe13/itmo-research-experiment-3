@@ -7,6 +7,7 @@ RUN  yarn
 COPY . .
 RUN yarn run build
 
+# Stage 2 - production
 FROM node:18.18-alpine AS runner
 WORKDIR /app
 ADD package.json .

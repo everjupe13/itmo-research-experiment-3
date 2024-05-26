@@ -21,6 +21,8 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
+
+  transition: .3s;
 }
 a:hover {
   color: #535bf2;
@@ -39,25 +41,6 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
 .card {
   padding: 2em;
 }
@@ -71,10 +54,6 @@ button:focus-visible {
 body {
   color: var(--primary-text-color);
   background-color: var(--primary-bg-color);
-}
-
-a:hover {
-  color: #747bff;
 }
 
 :root {
@@ -110,3 +89,29 @@ a:hover {
     --c-input-placeholder: rgba(36, 36, 36, 0.75);
   }
 } */
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.blog-content h1 {
+  font-size: 32px;
+}
+
+.blog-content h2 {
+  font-size: 24px;
+}
+
+.blog-content p,
+.blog-content div {
+  font-size: 14px;
+}
+
+.blog-content .text-block {
+  max-width: 600px;
+}

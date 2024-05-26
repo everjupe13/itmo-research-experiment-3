@@ -10,7 +10,7 @@ app.get('/:count', (req: Request, res: Response) => {
   const query = req.query
 
   const alhpabet = query.alhpabet as string
-  const customNanoid = alhpabet ? customAlphabet(req.body, 21) : nanoid
+  const customNanoid = alhpabet ? customAlphabet(alhpabet, 21) : nanoid
 
   const generated = Array.from({ length: Number(count) }).map(() =>
     commentFactory(customNanoid)
